@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PetListComponent } from './pet-list.component';
+import { OrderByPipe } from '../../order-by.pipe';
 
 describe('PetListComponent', () => {
   let component: PetListComponent;
@@ -8,7 +9,7 @@ describe('PetListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetListComponent ]
+      declarations: [ PetListComponent, OrderByPipe ]
     })
     .compileComponents();
   }));

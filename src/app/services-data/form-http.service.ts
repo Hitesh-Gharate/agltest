@@ -8,14 +8,13 @@ import { Observable } from 'rxjs';
 export class FormHttpService {
   header: any;
   option: any;
-  url = 'http://agl-developer-test.azurewebsites.net/people.json';
   constructor(
     private http: HttpClient,
   ) {
     this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.option = {header: this.header};
    }
-   getService(): Observable<any> {
-     return this.http.get(this.url, this.option);
+   getService(url): Observable<any> {
+     return this.http.get(url, this.option);
    }
 }

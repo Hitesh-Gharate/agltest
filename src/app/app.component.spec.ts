@@ -1,12 +1,22 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
+import { UserListComponent } from './user-list/user-list.component';
+import { PetListComponent } from './user-list/pet-list/pet-list.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { OrderByPipe } from './order-by.pipe';
+import { DataService } from './services-data/data.service';
+import { FormHttpService } from './services-data/form-http.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        UserListComponent,
+        PetListComponent,
+        OrderByPipe,
+        HttpClientTestingModule
       ],
+      providers: [DataService, FormHttpService]
     }).compileComponents();
   }));
 
@@ -16,16 +26,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'agl-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('agl-test');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to agl-test!');
-  });
 });

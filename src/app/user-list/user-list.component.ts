@@ -19,6 +19,9 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.dataService.getUserData().subscribe((res) => {
       this.dataSortOut(DataStore.USER_DATA);
+    },
+    error => {
+      console.log('error'  + error);
     });
   }
   dataSortOut(userList: UserData) {
